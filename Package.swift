@@ -40,7 +40,7 @@ let package = Package(
         ),
         .target(
             name: "IrohaCrypto",
-            dependencies: ["sr25519", "ed25519", "blake2", IrohaCryptoImp, Snorkel],
+            dependencies: ["sr25519", "ed25519", "blake2", "IrohaCryptoImp", "Snorkel"],
             path: "IrohaCrypto/Classes",
             publicHeadersPath: ".",
             cSettings: [
