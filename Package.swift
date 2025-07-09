@@ -16,7 +16,7 @@ let package = Package(
         .target(
             name: "IrohaCrypto",
             path: "IrohaCrypto/Classes",
-            publicHeadersPath: ".",  // means headers are scattered inside Common/, BIP39/, etc.
+            publicHeadersPath: "../include",
             cSettings: [
                 .headerSearchPath("BIP39"),
                 .headerSearchPath("Common"),
@@ -27,7 +27,7 @@ let package = Package(
                 .headerSearchPath("secp256k1"),
                 .headerSearchPath("sr25519"),
                 .headerSearchPath("ss58"),
-                .headerSearchPath(".")
+                .headerSearchPath("../include")
             ]
         )
     ]
