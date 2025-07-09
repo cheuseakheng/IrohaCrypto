@@ -19,7 +19,6 @@ let package = Package(
             publicHeadersPath: "include",
             cSettings: [
                 .headerSearchPath("."),
-                .headerSearchPath("include"),
                 .headerSearchPath("BIP39"),
                 .headerSearchPath("Common"),
                 .headerSearchPath("Iroha"),
