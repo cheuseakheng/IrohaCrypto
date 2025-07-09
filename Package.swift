@@ -45,6 +45,7 @@ let package = Package(
             publicHeadersPath: ".",
             cSettings: [
                 .headerSearchPath("."),
+                .headerSearchPath("../../scrypt/lib/scryptenc"),
                 .headerSearchPath("BIP39"),
                 .headerSearchPath("Common"),
                 .headerSearchPath("Iroha"),
