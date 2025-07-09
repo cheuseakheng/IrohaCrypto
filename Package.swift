@@ -1,5 +1,4 @@
 // swift-tools-version:5.7
-
 import PackageDescription
 
 let package = Package(
@@ -14,9 +13,9 @@ let package = Package(
         .target(
             name: "IrohaCrypto",
             path: "IrohaCrypto",
-            publicHeadersPath: "include",
+            publicHeadersPath: ".", // <- header is inside IrohaCrypto/
             cSettings: [
-                .headerSearchPath("include")
+                .headerSearchPath(".")
             ]
         )
     ]
