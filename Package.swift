@@ -16,8 +16,10 @@ let package = Package(
         .target(
             name: "IrohaCrypto",
             path: "IrohaCrypto/Classes",
-            publicHeadersPath: "../include",
+            publicHeadersPath: "include",
             cSettings: [
+                .headerSearchPath("."),
+                .headerSearchPath("include"),
                 .headerSearchPath("BIP39"),
                 .headerSearchPath("Common"),
                 .headerSearchPath("Iroha"),
@@ -26,8 +28,7 @@ let package = Package(
                 .headerSearchPath("ed25519"),
                 .headerSearchPath("secp256k1"),
                 .headerSearchPath("sr25519"),
-                .headerSearchPath("ss58"),
-                .headerSearchPath("../include")
+                .headerSearchPath("ss58")
             ]
         )
     ]
