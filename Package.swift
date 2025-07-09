@@ -16,7 +16,7 @@ let package = Package(
         .target(
             name: "IrohaCrypto",
             path: "IrohaCrypto/Classes",
-            publicHeadersPath: "include",
+            publicHeadersPath: ".",
             cSettings: [
                 .headerSearchPath("."),
                 .headerSearchPath("BIP39"),
