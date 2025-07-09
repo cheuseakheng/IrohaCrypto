@@ -19,8 +19,20 @@ let package = Package(
             publicHeadersPath: "include"
         ),
         .target(
+            name: "blake2",
+            path: "blake2Imp",
+            publicHeadersPath: "include"
+        ),
+        .target(
+            name: "ed25519",
+            path: "ed25519Imp",
+            publicHeadersPath: "include"
+        ),
+        .target(
             name: "IrohaCrypto",
             dependencies: ["sr25519"],
+            dependencies: ["blake2"],
+            dependencies: ["ed25519"],
             path: "IrohaCrypto/Classes",
             publicHeadersPath: ".",
             cSettings: [
