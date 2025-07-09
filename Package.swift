@@ -14,7 +14,13 @@ let package = Package(
     ],
     targets: [
         .target(
+            name: "sr25519",
+            path: "IrohaCrypto/sr25519Imp",
+            publicHeadersPath: "include"
+        ),
+        .target(
             name: "IrohaCrypto",
+            dependencies: ["sr25519"],
             path: "IrohaCrypto/Classes",
             publicHeadersPath: ".",
             cSettings: [
