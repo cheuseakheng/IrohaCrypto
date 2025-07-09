@@ -13,10 +13,11 @@ let package = Package(
         .target(
             name: "IrohaCrypto",
             path: "IrohaCrypto/Classes",
-            publicHeadersPath: ".", // all headers in Classes/* folders
+            publicHeadersPath: ".", // or "Crypto" if all public headers live there
             cSettings: [
                 .headerSearchPath("."),
-                .headerSearchPath("..") // if needed
+                .headerSearchPath("Crypto"),
+                .headerSearchPath("../Crypto") // sometimes needed
             ]
         )
     ]
