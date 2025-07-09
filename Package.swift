@@ -7,17 +7,20 @@ let package = Package(
         .iOS(.v12)
     ],
     products: [
-        .library(name: "IrohaCrypto", targets: ["IrohaCrypto"])
+        .library(
+            name: "IrohaCrypto",
+            targets: ["IrohaCrypto"]
+        )
     ],
     targets: [
         .target(
             name: "IrohaCrypto",
             path: "IrohaCrypto/Classes",
-            publicHeadersPath: ".", // or "Crypto" if all public headers live there
+            publicHeadersPath: ".",  // means headers are scattered inside Common/, BIP39/, etc.
             cSettings: [
-                .headerSearchPath("."),
-                .headerSearchPath("Crypto"),
-                .headerSearchPath("../Crypto") // sometimes needed
+                .headerSearchPath("Common"),
+                .headerSearchPath("BIP39"),
+                .headerSearchPath(".")
             ]
         )
     ]
