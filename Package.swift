@@ -83,7 +83,8 @@ let package = Package(
                 .headerSearchPath("ed25519"),
                 .headerSearchPath("secp256k1"),
                 .headerSearchPath("sr25519"),
-                .headerSearchPath("ss58")
+                .headerSearchPath("ss58"),
+                .headerSearchPath("../sr25519Imp/include")
             ]
         )
     ]
