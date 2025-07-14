@@ -27,7 +27,6 @@ let package = Package(
                 .headerSearchPath(".")
             ]
         ),
-
         .target(
             name: "lib-crypto",
             path: "ScryptHelper/libcperciva/crypto", // adjust if your .c files live elsewhere
@@ -36,7 +35,6 @@ let package = Package(
                 .headerSearchPath(".")
             ]
         ),
-
         .target(
             name: "lib-util",
             path: "ScryptHelper/libcperciva/util", // adjust if your .c files live elsewhere
@@ -45,11 +43,18 @@ let package = Package(
                 .headerSearchPath(".")
             ]
         ),
-
+        .target(
+            name: "lib-cpusupport",
+            path: "ScryptHelper/libcperciva/cpusupport", // adjust if your .c files live elsewhere
+            publicHeadersPath: ".",
+            cSettings: [
+                .headerSearchPath(".")
+            ]
+        ),
         // ✅ Swift tool (optional)
         .executableTarget(
             name: "ScryptHelperTool",
-            dependencies: ["ScryptC", "lib-crypto", "lib-util"],
+            dependencies: ["ScryptC", "lib-crypto", "lib-util", "lib-cpusupport"],
             path: "ScryptHelper",
             exclude: ["lib", "lib-platform", "libcperciva", "libscript-kdf", "m4", "tests"] // exclude all folders not related to Swift code
         ),
@@ -82,7 +87,7 @@ let package = Package(
         ),
         .target(
             name: "IrohaCrypto",
-            dependencies: ["sr25519", "ed25519", "blake2", "IrohaCryptoImp", "Snorkel", "ScryptC", "lib-crypto", "lib-util"],
+            dependencies: ["sr25519", "ed25519", "blake2", "IrohaCryptoImp", "Snorkel", "ScryptC", "lib-crypto", "lib-util", "lib-cpusupport"],
             path: "IrohaCrypto/Classes",
             publicHeadersPath: ".",
             cSettings: [
