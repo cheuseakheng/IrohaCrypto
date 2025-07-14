@@ -112,8 +112,6 @@ void sr25519_derive_public_soft(uint8_t *pubkey_out,
                                 const uint8_t *public_ptr,
                                 const uint8_t *cc_ptr);
 
-void sr25519_from_ed25519_bytes(const uint8_t *input, uint8_t *output);
-
 /**
  * Retrives secret key from ed25519 representation.
  *
