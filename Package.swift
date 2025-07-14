@@ -82,7 +82,7 @@ let package = Package(
         ),
         .target(
             name: "IrohaCrypto",
-            dependencies: ["sr25519", "ed25519", "blake2", "IrohaCryptoImp", "Snorkel", "ScryptC"],
+            dependencies: ["sr25519", "ed25519", "blake2", "IrohaCryptoImp", "Snorkel", "ScryptC", "lib-crypto", "lib-util"],
             path: "IrohaCrypto/Classes",
             publicHeadersPath: ".",
             cSettings: [
