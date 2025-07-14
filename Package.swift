@@ -18,7 +18,6 @@ let package = Package(
         )
     ],
     targets: [
-        // ✅ C target for scrypt core
         .target(
             name: "ScryptC",
             path: "ScryptHelper/lib/scryptenc", // adjust if your .c files live elsewhere
@@ -35,19 +34,17 @@ let package = Package(
                 .headerSearchPath("../../libscrypt-kdf")
             ]
         ),
-        // ✅ Swift tool (optional)
         .executableTarget(
             name: "ScryptHelperTool",
             dependencies: ["ScryptC"],
             path: "ScryptHelper",
             exclude: ["lib", "lib-platform", "libcperciva", "libscript-kdf", "m4", "tests"] // exclude all folders not related to Swift code
         ),
-
-        // other crypto targets...
         .target(
             name: "sr25519",
             path: "sr25519Imp",
             publicHeadersPath: "include",
+            sources: ["src"], 
             cSettings: [
         .headerSearchPath("include")
     ]
