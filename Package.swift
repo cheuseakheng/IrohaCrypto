@@ -10,13 +10,33 @@ let package = Package(
         .library(
             name: "IrohaCrypto",
             targets: ["IrohaCrypto"]
+        ),
+        // Optional: add a product for the CLI tool
+        .executable(
+            name: "ScryptHelperTool",
+            targets: ["ScryptHelperTool"]
         )
     ],
     targets: [
+        // ✅ C target for scrypt core
         .target(
-            name: "ScryptHelper",
-            path: "ScryptHelper"
+            name: "ScryptC",
+            path: "ScryptHelper/lib/scryptenc", // adjust if your .c files live elsewhere
+            publicHeadersPath: ".",
+            cSettings: [
+                .headerSearchPath(".")
+            ]
         ),
+
+        // ✅ Swift tool (optional)
+        .executableTarget(
+            name: "ScryptHelperTool",
+            dependencies: ["ScryptC"],
+            path: "ScryptHelper",
+            exclude: ["lib", "lib-platform", "libcperciva", "libscript-kdf", "m4", "tests"] // exclude all folders not related to Swift code
+        ),
+
+        // other crypto targets...
         .target(
             name: "sr25519",
             path: "sr25519Imp",
@@ -44,7 +64,7 @@ let package = Package(
         ),
         .target(
             name: "IrohaCrypto",
-            dependencies: ["sr25519", "ed25519", "blake2", "IrohaCryptoImp", "Snorkel", "ScryptHelper"],
+            dependencies: ["sr25519", "ed25519", "blake2", "IrohaCryptoImp", "Snorkel", "ScryptC"],
             path: "IrohaCrypto/Classes",
             publicHeadersPath: ".",
             cSettings: [
