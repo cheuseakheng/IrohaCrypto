@@ -28,6 +28,7 @@ let package = Package(
                 .headerSearchPath("../../lib-platform/crypto"),
                 .headerSearchPath("../../lib-platform/util"),
                 .headerSearchPath("../../libcperciva/alg"),
+                .headerSearchPath("../../libcperciva/crypto"),
                 .headerSearchPath("../../libcperciva/util"),
                 .headerSearchPath("../../libcperciva/cpusupport"),
                 .headerSearchPath("../../libscrypt-kdf")
