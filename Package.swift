@@ -15,8 +15,7 @@ let package = Package(
     targets: [
         .target(
             name: "ScryptHelper",
-            path: "ScryptHelper",
-            publicHeadersPath: "lib/scryptenc"
+            path: "ScryptHelper"
         ),
         .target(
             name: "sr25519",
