@@ -46,8 +46,8 @@ let package = Package(
             publicHeadersPath: "include",
             sources: ["src"], 
             cSettings: [
-        .headerSearchPath("include")
-    ]
+                .headerSearchPath("include")
+            ]
         ),
         .target(
             name: "blake2",
