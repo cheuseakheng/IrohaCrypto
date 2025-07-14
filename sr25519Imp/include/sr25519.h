@@ -112,6 +112,11 @@ void sr25519_derive_public_soft(uint8_t *pubkey_out,
                                 const uint8_t *public_ptr,
                                 const uint8_t *cc_ptr);
 
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * Retrives secret key from ed25519 representation.
  *
@@ -121,6 +126,10 @@ void sr25519_derive_public_soft(uint8_t *pubkey_out,
  */
 void sr25519_from_ed25519_bytes(uint8_t *secret_out,
                                 const uint8_t *secret_ptr);
+
+#ifdef __cplusplus
+}
+#endif
 
 /**
  * Generate a key pair.
