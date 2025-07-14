@@ -24,37 +24,17 @@ let package = Package(
             path: "ScryptHelper/lib/scryptenc", // adjust if your .c files live elsewhere
             publicHeadersPath: ".",
             cSettings: [
-                .headerSearchPath(".")
-            ]
-        ),
-        .target(
-            name: "lib-crypto",
-            path: "ScryptHelper/libcperciva/crypto", // adjust if your .c files live elsewhere
-            publicHeadersPath: ".",
-            cSettings: [
-                .headerSearchPath(".")
-            ]
-        ),
-        .target(
-            name: "lib-util",
-            path: "ScryptHelper/libcperciva/util", // adjust if your .c files live elsewhere
-            publicHeadersPath: ".",
-            cSettings: [
-                .headerSearchPath(".")
-            ]
-        ),
-        .target(
-            name: "lib-cpusupport",
-            path: "ScryptHelper/libcperciva/cpusupport", // adjust if your .c files live elsewhere
-            publicHeadersPath: ".",
-            cSettings: [
-                .headerSearchPath(".")
+                .headerSearchPath("."),
+                .headerSearchPath("../../libcperciva/alg"),
+                .headerSearchPath("../../libcperciva/util"),
+                .headerSearchPath("../../libcperciva/cpusupport"),
+                .headerSearchPath("../../libscrypt-kdf")
             ]
         ),
         // ✅ Swift tool (optional)
         .executableTarget(
             name: "ScryptHelperTool",
-            dependencies: ["ScryptC", "lib-crypto", "lib-util", "lib-cpusupport"],
+            dependencies: ["ScryptC"],
             path: "ScryptHelper",
             exclude: ["lib", "lib-platform", "libcperciva", "libscript-kdf", "m4", "tests"] // exclude all folders not related to Swift code
         ),
@@ -87,7 +67,7 @@ let package = Package(
         ),
         .target(
             name: "IrohaCrypto",
-            dependencies: ["sr25519", "ed25519", "blake2", "IrohaCryptoImp", "Snorkel", "ScryptC", "lib-crypto", "lib-util", "lib-cpusupport"],
+            dependencies: ["sr25519", "ed25519", "blake2", "IrohaCryptoImp", "Snorkel", "ScryptC"],
             path: "IrohaCrypto/Classes",
             publicHeadersPath: ".",
             cSettings: [
