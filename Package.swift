@@ -13,6 +13,12 @@ let package = Package(
         )
     ],
     targets: [
+        // scrypt target
+        .target(
+            name: "ScryptHelper",
+            path: "ScryptHelper/lib/scryptenc",
+            publicHeadersPath: "include"
+        ),
         .target(
             name: "sr25519",
             path: "sr25519Imp",
@@ -40,12 +46,11 @@ let package = Package(
         ),
         .target(
             name: "IrohaCrypto",
-            dependencies: ["sr25519", "ed25519", "blake2", "IrohaCryptoImp", "Snorkel"],
+            dependencies: ["sr25519", "ed25519", "blake2", "IrohaCryptoImp", "Snorkel", "ScryptHelper"],
             path: "IrohaCrypto/Classes",
             publicHeadersPath: ".",
             cSettings: [
                 .headerSearchPath("."),
-                .headerSearchPath("../../scrypt/lib/scryptenc"),
                 .headerSearchPath("BIP39"),
                 .headerSearchPath("Common"),
                 .headerSearchPath("Iroha"),
