@@ -46,7 +46,10 @@ let package = Package(
         .target(
             name: "sr25519",
             path: "sr25519Imp",
-            publicHeadersPath: "include"
+            publicHeadersPath: "include",
+            cSettings: [
+        .headerSearchPath("include")
+    ]
         ),
         .target(
             name: "blake2",
