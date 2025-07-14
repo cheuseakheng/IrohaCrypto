@@ -30,7 +30,7 @@ let package = Package(
 
         .target(
             name: "lib-crypto",
-            path: "libcperciva/crypto", // adjust if your .c files live elsewhere
+            path: "ScryptHelper/libcperciva/crypto", // adjust if your .c files live elsewhere
             publicHeadersPath: ".",
             cSettings: [
                 .headerSearchPath(".")
@@ -39,7 +39,7 @@ let package = Package(
 
         .target(
             name: "lib-util",
-            path: "libcperciva/util", // adjust if your .c files live elsewhere
+            path: "ScryptHelper/libcperciva/util", // adjust if your .c files live elsewhere
             publicHeadersPath: ".",
             cSettings: [
                 .headerSearchPath(".")
