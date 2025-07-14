@@ -25,6 +25,7 @@ let package = Package(
             publicHeadersPath: ".",
             cSettings: [
                 .headerSearchPath("."),
+                .headerSearchPath("../../lib-platform"),
                 .headerSearchPath("../../lib-platform/crypto"),
                 .headerSearchPath("../../lib-platform/util"),
                 .headerSearchPath("../../libcperciva/alg"),
