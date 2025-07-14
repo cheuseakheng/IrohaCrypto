@@ -28,10 +28,28 @@ let package = Package(
             ]
         ),
 
+        .target(
+            name: "lib-crypto",
+            path: "libcperciva/crypto", // adjust if your .c files live elsewhere
+            publicHeadersPath: ".",
+            cSettings: [
+                .headerSearchPath(".")
+            ]
+        ),
+
+        .target(
+            name: "lib-util",
+            path: "libcperciva/util", // adjust if your .c files live elsewhere
+            publicHeadersPath: ".",
+            cSettings: [
+                .headerSearchPath(".")
+            ]
+        ),
+
         // ✅ Swift tool (optional)
         .executableTarget(
             name: "ScryptHelperTool",
-            dependencies: ["ScryptC"],
+            dependencies: ["ScryptC", "lib-crypto", "lib-util"],
             path: "ScryptHelper",
             exclude: ["lib", "lib-platform", "libcperciva", "libscript-kdf", "m4", "tests"] // exclude all folders not related to Swift code
         ),
